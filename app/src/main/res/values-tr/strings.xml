@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Namaz Vakitleri</string>
+    <string name="tile_label">Namaz Vakitleri</string>
+    <string name="tile_description">Hızlıca namaz vakitlerini görün.</string>
+
+    <string name="fajr">İmsak</string>
+    <string name="shuruq">Güneş</string>
+    <string name="dhuhr">Öğle</string>
+    <string name="asr">İkindi</string>
+    <string name="maghrib">Akşam</string>
+    <string name="isha">Yatsı</string>
+
+    <string name="title_activity_location_selector">Konum Seç</string>
+    <string name="home">AnaSayfa</string>
+    <string name="edit_location">Konumu Düzenle</string>
+    <string name="about">Hakkında</string>
+    <string name="title_activity_about">Hakkında</string>
+    <string name="unknown_error">Bilinmeyen Hata</string>
+    <string name="location_should_be_selected_first">Önce konum seçilmelidir. \n Konum seçmek için tıklayın.</string>
+    <string name="about_info">Namaz Vakitleri \n Volkan Şahin tarafından geliştirilen açık kaynaklı bir uygulamadır.</string>
+    <string name="sent_to_your_phone">Telefonuna gönderildi.</string>
+</resources>
