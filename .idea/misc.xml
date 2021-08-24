@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_location_24.xml" value="0.85" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.85" />
+        <entry key="app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.85" />
+        <entry key="app/src/main/res/drawable/themes.xml" value="0.85" />
+        <entry key="app/src/main/res/layout/activity_about.xml" value="0.7994579945799458" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.5601374570446735" />
+        <entry key="app/src/main/res/layout/activity_location_chooser.xml" value="1.33203125" />
+        <entry key="app/src/main/res/layout/activity_location_selector.xml" value="1.1972222222222222" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="1.0" />
+        <entry key="app/src/main/res/layout/activity_region_select.xml" value="0.6666666666666666" />
+        <entry key="app/src/main/res/layout/item_location_list_header.xml" value="1.2277777777777779" />
+        <entry key="app/src/main/res/layout/item_location_row.xml" value="1.2277777777777779" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.8611111111111112" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.8611111111111112" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
