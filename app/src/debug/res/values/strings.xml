@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Debug Pray Times</string>
+    <string name="tile_preview_activity" translatable="false">Debug Preview Pray Times</string>
+</resources>
