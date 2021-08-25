@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -45,6 +47,9 @@ dependencies {
     implementation "androidx.wear:wear-remote-interactions:1.0.0-beta01"
     implementation "androidx.wear.tiles:tiles:1.0.0-alpha10"
     debugImplementation "androidx.wear.tiles:tiles-renderer:1.0.0-alpha10"
+
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.1'
+    implementation 'com.google.firebase:firebase-analytics:19.0.1'
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-guava:1.5.1'
 
