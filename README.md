@@ -1,11 +1,12 @@
-<img src="/app_icon.png" width="175" alt="App icon" align="left"/>
+<img src="/app_icon.png" width="125" alt="App icon" align="left"/>
 
 <h1>Pray Times</h1>
         
-See today's pray times on your WearOS smartwatch with just one swipe thanks to new [Tiles](https://android-developers.googleblog.com/2021/03/creating-custom-tiles-on-wear-os-by-google-with-jetpack-tiles.html) feature.
+See today's pray times on your WearOS smartwatch with just one swipe.
 
 <br/>
-<br/>
+
+<a href='https://play.google.com/store/apps/details?id=com.vsahin.praytimes'><img height= "70" target="_blank" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
 
 ### Screenshots
 
