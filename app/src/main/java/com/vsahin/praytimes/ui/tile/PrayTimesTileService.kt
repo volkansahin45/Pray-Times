@@ -24,7 +24,7 @@ private const val LOCATION_MODIFIER_ID = "locationModifierId"
 private const val RESOURCES_VERSION = "1"
 
 @AndroidEntryPoint
-class PrayTileService : TileProviderService() {
+class PrayTileService : TileService() {
     @Inject
     lateinit var repository: PrayTimesRepository
     private val serviceScope = CoroutineScope(Dispatchers.IO)
@@ -57,7 +57,7 @@ class PrayTileService : TileProviderService() {
 
     override fun onResourcesRequest(requestParams: RequestBuilders.ResourcesRequest): ListenableFuture<ResourceBuilders.Resources> {
         return Futures.immediateFuture(
-            ResourceBuilders.Resources.builder()
+            ResourceBuilders.Resources.Builder()
                 .setVersion(RESOURCES_VERSION)
                 .build()
         )
@@ -67,23 +67,23 @@ class PrayTileService : TileProviderService() {
         currentDateReadable: String,
         todayPrayTime: PrayTime?
     ): TileBuilders.Tile {
-        return TileBuilders.Tile.builder()
+        return TileBuilders.Tile.Builder()
             .setResourcesVersion(RESOURCES_VERSION)
             .setTimeline(
-                TimelineBuilders.Timeline.builder().addTimelineEntry(
-                    TimelineBuilders.TimelineEntry.builder()
+                TimelineBuilders.Timeline.Builder().addTimelineEntry(
+                    TimelineBuilders.TimelineEntry.Builder()
                         .setValidity(
-                            TimelineBuilders.TimeInterval.builder()
+                            TimelineBuilders.TimeInterval.Builder()
                                 .setEndMillis( // refresh the tile at the end of the day
                                     getEndOfDayInMillis(this, getCurrentDate(this))
-                                )
+                                ).build()
                         )
                         .setLayout(
-                            LayoutElementBuilders.Layout.builder().setRoot(
+                            LayoutElementBuilders.Layout.Builder().setRoot(
                                 successLayout(currentDateReadable, todayPrayTime)
-                            )
-                        )
-                )
+                            ).build()
+                        ).build()
+                ).build()
             ).build()
     }
 
@@ -91,53 +91,62 @@ class PrayTileService : TileProviderService() {
         currentDateReadable: String,
         prayTime: PrayTime?
     ) =
-        LayoutElementBuilders.Column.builder()
+        LayoutElementBuilders.Column.Builder()
             .setModifiers(
-                ModifiersBuilders.Modifiers.builder()
+                ModifiersBuilders.Modifiers.Builder()
                     .setClickable(
-                        ModifiersBuilders.Clickable.builder()
+                        ModifiersBuilders.Clickable.Builder()
                             .setId(SUCCESS_MODIFIER_ID)
                             .setOnClick(
-                                ActionBuilders.LaunchAction.builder()
+                                ActionBuilders.LaunchAction.Builder()
                                     .setAndroidActivity(
-                                        ActionBuilders.AndroidActivity.builder()
+                                        ActionBuilders.AndroidActivity.Builder()
                                             .setClassName(HomeActivity::class.qualifiedName ?: "")
                                             .setPackageName(this.packageName)
-                                    )
-                            )
-                    )
+                                            .build()
+                                    ).build()
+                            ).build()
+                    ).build()
             )
             .addContent(
-                LayoutElementBuilders.Text.builder()
+                LayoutElementBuilders.Text.Builder()
                     .setText(currentDateReadable)
+                    .build()
             )
             .addContent(
-                LayoutElementBuilders.Text.builder()
+                LayoutElementBuilders.Text.Builder()
                     .setText(repository.getLocationName() ?: "")
+                    .build()
             )
             .addContent(
-                LayoutElementBuilders.Text.builder()
+                LayoutElementBuilders.Text.Builder()
                     .setText("${getString(R.string.fajr)}: ${prayTime?.fajr}")
+                    .build()
             )
             .addContent(
-                LayoutElementBuilders.Text.builder()
+                LayoutElementBuilders.Text.Builder()
                     .setText("${getString(R.string.shuruq)}: ${prayTime?.shuruq}")
+                    .build()
             )
             .addContent(
-                LayoutElementBuilders.Text.builder()
+                LayoutElementBuilders.Text.Builder()
                     .setText("${getString(R.string.dhuhr)}: ${prayTime?.dhuhr}")
+                    .build()
             )
             .addContent(
-                LayoutElementBuilders.Text.builder()
+                LayoutElementBuilders.Text.Builder()
                     .setText("${getString(R.string.asr)}: ${prayTime?.asr}")
+                    .build()
             )
             .addContent(
-                LayoutElementBuilders.Text.builder()
+                LayoutElementBuilders.Text.Builder()
                     .setText("${getString(R.string.maghrib)}: ${prayTime?.maghrib}")
+                    .build()
             )
             .addContent(
-                LayoutElementBuilders.Text.builder()
+                LayoutElementBuilders.Text.Builder()
                     .setText("${getString(R.string.isha)}: ${prayTime?.isha}")
+                    .build()
             )
             .build()
 
@@ -145,16 +154,16 @@ class PrayTileService : TileProviderService() {
         modifier: String = "",
         text: String
     ): TileBuilders.Tile {
-        return TileBuilders.Tile.builder()
+        return TileBuilders.Tile.Builder()
             .setResourcesVersion(RESOURCES_VERSION)
             .setTimeline(
-                TimelineBuilders.Timeline.builder().addTimelineEntry(
-                    TimelineBuilders.TimelineEntry.builder().setLayout(
-                        LayoutElementBuilders.Layout.builder().setRoot(
+                TimelineBuilders.Timeline.Builder().addTimelineEntry(
+                    TimelineBuilders.TimelineEntry.Builder().setLayout(
+                        LayoutElementBuilders.Layout.Builder().setRoot(
                             centerTextLayout(modifier, text)
-                        )
-                    )
-                )
+                        ).build()
+                    ).build()
+                ).build()
             ).build()
     }
 
@@ -162,26 +171,28 @@ class PrayTileService : TileProviderService() {
         modifier: String = "",
         text: String
     ) =
-        LayoutElementBuilders.Column.builder()
+        LayoutElementBuilders.Column.Builder()
             .setModifiers(
-                ModifiersBuilders.Modifiers.builder()
+                ModifiersBuilders.Modifiers.Builder()
                     .setClickable(
-                        ModifiersBuilders.Clickable.builder()
+                        ModifiersBuilders.Clickable.Builder()
                             .setId(modifier)
                             .setOnClick(
-                                ActionBuilders.LaunchAction.builder()
+                                ActionBuilders.LaunchAction.Builder()
                                     .setAndroidActivity(
-                                        ActionBuilders.AndroidActivity.builder()
+                                        ActionBuilders.AndroidActivity.Builder()
                                             .setClassName(HomeActivity::class.qualifiedName ?: "")
                                             .setPackageName(this.packageName)
-                                    )
-                            )
-                    )
+                                            .build()
+                                    ).build()
+                            ).build()
+                    ).build()
             )
             .addContent(
-                LayoutElementBuilders.Text.builder()
+                LayoutElementBuilders.Text.Builder()
                     .setMaxLines(5)
                     .setText(text)
+                    .build()
             )
             .build()
 }
