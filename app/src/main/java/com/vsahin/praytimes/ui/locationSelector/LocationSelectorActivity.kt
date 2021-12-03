@@ -10,8 +10,8 @@ import androidx.wear.widget.WearableLinearLayoutManager
 import com.vsahin.praytimes.databinding.ActivityLocationSelectorBinding
 import com.vsahin.praytimes.ui.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
-import androidx.wear.tiles.TileProviderService
 import com.vsahin.praytimes.ui.tile.PrayTileService
+import androidx.wear.tiles.TileService
 
 @AndroidEntryPoint
 class LocationSelectorActivity : AppCompatActivity() {
@@ -63,7 +63,7 @@ class LocationSelectorActivity : AppCompatActivity() {
     }
 
     private fun refreshTile() {
-        TileProviderService.getUpdater(this@LocationSelectorActivity)
+        TileService.getUpdater(this@LocationSelectorActivity)
             .requestUpdate(PrayTileService::class.java)
     }
 
