@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vsahin.praytimes.data.PrayTimesRepository
 import com.vsahin.praytimes.data.Result
-import com.vsahin.praytimes.ui.common.exception.LocationDidNotSelectedException
+import com.vsahin.praytimes.ui.common.exception.LocationIsNotSelectedException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,7 +26,7 @@ class HomeViewModel @Inject constructor(
         _state.value = _state.value?.copy(isLoading = true, locationName = repository.getLocationName())
 
         if(!repository.isLocationSelected()) {
-            _state.value = _state.value?.copy(isLoading = false, error = LocationDidNotSelectedException())
+            _state.value = _state.value?.copy(isLoading = false, error = LocationIsNotSelectedException())
             return
         }
 

@@ -24,4 +24,5 @@
     <string name="date_time_format" translatable="false">yyyy-MM-dd HH:mm</string>
     <string name="about_info">Pray Times is an open source application developed by \n Volkan Şahin</string>
     <string name="sent_to_your_phone">Sent to your phone</string>
+    <string name="refresh">Refresh</string>
 </resources>

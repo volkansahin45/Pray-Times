@@ -16,6 +16,9 @@ android {
         targetSdk 30
         versionCode 2
         versionName "1.0"
+        vectorDrawables {
+            useSupportLibrary true
+        }
 
     }
 
@@ -30,6 +33,23 @@ android {
     }
     buildFeatures {
         viewBinding true
+        compose true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
     }
 }
 
@@ -42,8 +62,19 @@ dependencies {
     implementation "androidx.core:core-ktx:1.7.0"
     implementation "com.google.android.gms:play-services-wearable:17.1.0"
     implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation 'com.google.android.material:material:1.4.0'
+
+    implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation "androidx.compose.ui:ui-tooling-preview:1.0.5"
+    implementation "androidx.compose.ui:ui:1.0.5"
+    implementation "androidx.compose.runtime:runtime-livedata:1.1.0-beta04"
+    implementation 'androidx.compose.material:material-icons-core:1.0.5'
+
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.0.5"
+    debugImplementation "androidx.compose.ui:ui-tooling:1.0.5"
 
     implementation "androidx.wear:wear:1.2.0"
+    implementation "androidx.wear.compose:compose-material:1.0.0-alpha12"
     implementation "androidx.wear:wear-remote-interactions:1.0.0"
     implementation "androidx.wear.tiles:tiles:1.0.0"
     debugImplementation "androidx.wear.tiles:tiles-renderer:1.0.0"
