@@ -21,4 +21,5 @@
     <string name="about_info">Namaz Vakitleri \n Volkan Şahin tarafından geliştirilen açık kaynaklı bir uygulamadır.</string>
     <string name="sent_to_your_phone">Telefonuna gönderildi.</string>
     <string name="refresh">Yenile</string>
+    <string name="loading">Yükleniyor…</string>
 </resources>
