@@ -33,7 +33,7 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             _state.value = when (val result = repository.getPrayTimesToday()) {
                 is Result.Success -> {
-                    _state.value?.copy(isLoading = false, prayTimesToday = result.data)
+                    _state.value?.copy(isLoading = false, prayTimesToday = result.data, error = null)
                 }
                 is Result.Error -> {
                     _state.value?.copy(isLoading = false, error = result.exception)

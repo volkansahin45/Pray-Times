@@ -6,9 +6,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.viewinterop.AndroidView
-import com.google.android.material.progressindicator.CircularProgressIndicator
+import androidx.compose.ui.res.stringResource
+import androidx.wear.compose.material.Text
+import com.vsahin.praytimes.R
 
 @Composable
 fun LoadingIndicator(modifier: Modifier = Modifier) {
@@ -17,7 +17,6 @@ fun LoadingIndicator(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        val context = LocalContext.current
-        AndroidView(factory = { CircularProgressIndicator(context) })
+        Text(text = stringResource(id = R.string.loading))
     }
 }
