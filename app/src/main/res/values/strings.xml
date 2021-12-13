@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Pray Times</string>
-    <string name="title_activity_location_selector">Select a Location</string>
-    <string name="title_activity_about">About</string>
 
     <string name="github_url" translatable="false">https://github.com/volkansahin45/pray-times</string>
     <string name="personal_url" translatable="false">https://vsahin.com</string>
