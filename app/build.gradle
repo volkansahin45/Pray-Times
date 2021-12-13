@@ -60,39 +60,32 @@ kapt {
 dependencies {
 
     implementation "androidx.core:core-ktx:1.7.0"
-    implementation "com.google.android.gms:play-services-wearable:17.1.0"
-    implementation "androidx.recyclerview:recyclerview:1.2.1"
 
-
-    implementation 'androidx.activity:activity-compose:1.4.0'
     implementation "androidx.compose.ui:ui-tooling-preview:1.0.5"
     implementation "androidx.compose.ui:ui:1.0.5"
     implementation "androidx.compose.runtime:runtime-livedata:1.1.0-beta04"
     implementation 'androidx.compose.material:material-icons-core:1.0.5'
-
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.0.5"
     debugImplementation "androidx.compose.ui:ui-tooling:1.0.5"
 
     implementation "androidx.wear:wear:1.2.0"
     implementation "androidx.wear.compose:compose-material:1.0.0-alpha12"
+    implementation "androidx.wear.compose:compose-navigation:1.0.0-alpha12"
     implementation "androidx.wear:wear-remote-interactions:1.0.0"
     implementation "androidx.wear.tiles:tiles:1.0.0"
     debugImplementation "androidx.wear.tiles:tiles-renderer:1.0.0"
 
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.5'
-    implementation 'com.google.firebase:firebase-analytics:20.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.6'
+    implementation 'com.google.firebase:firebase-analytics:20.0.1'
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-guava:1.5.1'
 
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
-
     implementation "androidx.preference:preference-ktx:1.1.1"
 
     implementation "com.google.dagger:hilt-android:2.37"
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0-beta01"
     kapt "com.google.dagger:hilt-compiler:2.37"
 }

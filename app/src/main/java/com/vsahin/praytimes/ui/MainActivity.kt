@@ -1,16 +1,14 @@
-package com.vsahin.praytimes.ui.locationSelector
+package com.vsahin.praytimes.ui
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.wear.compose.material.ExperimentalWearMaterialApi
 import com.vsahin.praytimes.ui.theme.PrayTimesTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LocationSelectorActivity : AppCompatActivity() {
-    private val viewModel: LocationSelectorViewModel by viewModels()
+class MainActivity : ComponentActivity() {
 
     @ExperimentalWearMaterialApi
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,10 +16,7 @@ class LocationSelectorActivity : AppCompatActivity() {
 
         setContent {
             PrayTimesTheme {
-                LocationSelectorScreen(
-                    viewModel = viewModel,
-                    onFinish = { finish() }
-                )
+                Navigation()
             }
         }
     }

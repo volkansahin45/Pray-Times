@@ -11,11 +11,9 @@
     <string name="maghrib">Akşam</string>
     <string name="isha">Yatsı</string>
 
-    <string name="title_activity_location_selector">Konum Seç</string>
     <string name="home">AnaSayfa</string>
     <string name="edit_location">Konumu Düzenle</string>
     <string name="about">Hakkında</string>
-    <string name="title_activity_about">Hakkında</string>
     <string name="unknown_error">Bilinmeyen Hata</string>
     <string name="location_should_be_selected_first">Önce konum seçilmelidir. \n Konum seçmek için tıklayın.</string>
     <string name="about_info">Namaz Vakitleri \n Volkan Şahin tarafından geliştirilen açık kaynaklı bir uygulamadır.</string>

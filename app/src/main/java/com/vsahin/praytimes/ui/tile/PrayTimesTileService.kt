@@ -10,7 +10,7 @@ import com.vsahin.praytimes.common.getEndOfDayInMillis
 import com.vsahin.praytimes.data.PrayTimesRepository
 import com.vsahin.praytimes.data.Result
 import com.vsahin.praytimes.data.entity.PrayTime
-import com.vsahin.praytimes.ui.home.HomeActivity
+import com.vsahin.praytimes.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -101,7 +101,7 @@ class PrayTileService : TileService() {
                                 ActionBuilders.LaunchAction.Builder()
                                     .setAndroidActivity(
                                         ActionBuilders.AndroidActivity.Builder()
-                                            .setClassName(HomeActivity::class.qualifiedName ?: "")
+                                            .setClassName(MainActivity::class.qualifiedName ?: "")
                                             .setPackageName(this.packageName)
                                             .build()
                                     ).build()
@@ -181,7 +181,7 @@ class PrayTileService : TileService() {
                                 ActionBuilders.LaunchAction.Builder()
                                     .setAndroidActivity(
                                         ActionBuilders.AndroidActivity.Builder()
-                                            .setClassName(HomeActivity::class.qualifiedName ?: "")
+                                            .setClassName(MainActivity::class.qualifiedName ?: "")
                                             .setPackageName(this.packageName)
                                             .build()
                                     ).build()
