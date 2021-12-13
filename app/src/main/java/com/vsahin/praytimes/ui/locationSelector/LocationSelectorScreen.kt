@@ -16,18 +16,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.wear.compose.material.ScalingLazyColumn
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.items
 import androidx.wear.tiles.TileService
+import com.vsahin.praytimes.ui.HOME
 import com.vsahin.praytimes.ui.components.LoadingIndicator
-import com.vsahin.praytimes.ui.home.HomeActivity
 import com.vsahin.praytimes.ui.tile.PrayTileService
 
 @Composable
 fun LocationSelectorScreen(
-    viewModel: LocationSelectorViewModel,
-    onFinish: (() -> Unit)? = null,
+    navController: NavController,
+    viewModel: LocationSelectorViewModel
 ) {
     val context = LocalContext.current
     val locationSelectorState = viewModel.state.observeAsState()
@@ -79,9 +80,7 @@ fun LocationSelectorScreen(
                                     viewModel.saveLocationName()
                                     viewModel.saveLocationIds()
                                     refreshTile(context)
-                                    val intent = Intent(context, HomeActivity::class.java)
-                                    context.startActivity(intent)
-                                    onFinish?.invoke()
+                                    navController.navigate(HOME)
                                 }
                             }
                         },

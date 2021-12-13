@@ -1,9 +1,8 @@
 package com.vsahin.praytimes.ui.home
 
-import android.content.Context
-import android.content.Intent
 import android.widget.Toast
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
@@ -15,20 +14,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import androidx.wear.compose.material.*
 import com.vsahin.praytimes.R
 import com.vsahin.praytimes.common.getCurrentDateReadable
-import com.vsahin.praytimes.ui.about.AboutActivity
+import com.vsahin.praytimes.ui.ABOUT
+import com.vsahin.praytimes.ui.LOCATION_SELECTOR
 import com.vsahin.praytimes.ui.common.exception.LocationIsNotSelectedException
 import com.vsahin.praytimes.ui.components.LoadingIndicator
-import com.vsahin.praytimes.ui.locationSelector.LocationSelectorActivity
 
 @ExperimentalWearMaterialApi
 @Composable
 fun HomeScreen(
-    viewModel: HomeViewModel,
-    onFinish: (() -> Unit)? = null,
-    onRefresh: (() -> Unit)? = null
+    navController: NavHostController,
+    viewModel: HomeViewModel
 ) {
     val context = LocalContext.current
     val homeState = viewModel.state.observeAsState()
@@ -51,8 +50,8 @@ fun HomeScreen(
     state.error?.let {
         when (state.error) {
             is LocationIsNotSelectedException -> {
-                context.startActivity(Intent(context, LocationSelectorActivity::class.java))
-                onFinish?.invoke()
+                navController.navigate(LOCATION_SELECTOR)
+                //onFinish?.invoke()
                 return
             }
             else -> {
@@ -69,10 +68,10 @@ fun HomeScreen(
         LoadingIndicator()
     } else {
         HomeContent(
+            navController = navController,
             state = state,
-            context = context,
             prayTimes = prayTimes,
-            onRefresh = onRefresh
+            onRefresh = { viewModel.init() }
         )
     }
 }
@@ -80,9 +79,9 @@ fun HomeScreen(
 @Composable
 fun HomeContent(
     state: HomeState,
-    context: Context,
     prayTimes: Array<String>,
-    onRefresh: (() -> Unit)?
+    onRefresh: () -> Unit,
+    navController: NavHostController
 ) {
     val scalingLazyListState = ScalingLazyListState()
 
@@ -110,7 +109,7 @@ fun HomeContent(
         }
 
         item {
-            if (state.error != null && onRefresh != null) {
+            if (state.error != null) {
                 Button(onClick = { onRefresh() }) {
                     Icon(
                         imageVector = Icons.Default.Refresh,
@@ -132,7 +131,7 @@ fun HomeContent(
                     Text(stringResource(id = R.string.edit_location))
                 },
                 onClick = {
-                    context.startActivity(Intent(context, LocationSelectorActivity::class.java))
+                    navController.navigate(LOCATION_SELECTOR)
                 }
             )
         }
@@ -149,7 +148,7 @@ fun HomeContent(
                     Text(stringResource(id = R.string.about))
                 },
                 onClick = {
-                    context.startActivity(Intent(context, AboutActivity::class.java))
+                    navController.navigate(ABOUT)
                 }
             )
         }
