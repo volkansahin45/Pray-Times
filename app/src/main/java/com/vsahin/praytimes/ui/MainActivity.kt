@@ -3,14 +3,12 @@ package com.vsahin.praytimes.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.wear.compose.material.ExperimentalWearMaterialApi
 import com.vsahin.praytimes.ui.theme.PrayTimesTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @ExperimentalWearMaterialApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

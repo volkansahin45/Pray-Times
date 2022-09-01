@@ -23,7 +23,6 @@ import com.vsahin.praytimes.ui.LOCATION_SELECTOR
 import com.vsahin.praytimes.ui.common.exception.LocationIsNotSelectedException
 import com.vsahin.praytimes.ui.components.LoadingIndicator
 
-@ExperimentalWearMaterialApi
 @Composable
 fun HomeScreen(
     navController: NavHostController,
@@ -50,8 +49,11 @@ fun HomeScreen(
     state.error?.let {
         when (state.error) {
             is LocationIsNotSelectedException -> {
-                navController.navigate(LOCATION_SELECTOR)
-                //onFinish?.invoke()
+                navController.navigate(LOCATION_SELECTOR) {
+                    popUpTo(0) {
+                        inclusive = true
+                    }
+                }
                 return
             }
             else -> {

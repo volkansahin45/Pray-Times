@@ -2,7 +2,6 @@ package com.vsahin.praytimes.ui
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.wear.compose.material.ExperimentalWearMaterialApi
 import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
@@ -14,7 +13,6 @@ const val HOME = "home"
 const val LOCATION_SELECTOR = "locationSelector"
 const val ABOUT = "about"
 
-@ExperimentalWearMaterialApi
 @Composable
 fun Navigation() {
     val navController = rememberSwipeDismissableNavController()
