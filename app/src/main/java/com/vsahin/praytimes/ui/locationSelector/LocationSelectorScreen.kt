@@ -1,7 +1,6 @@
 package com.vsahin.praytimes.ui.locationSelector
 
 import android.content.Context
-import android.content.Intent
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
@@ -80,7 +79,11 @@ fun LocationSelectorScreen(
                                     viewModel.saveLocationName()
                                     viewModel.saveLocationIds()
                                     refreshTile(context)
-                                    navController.navigate(HOME)
+                                    navController.navigate(HOME) {
+                                        popUpTo(0) {
+                                            inclusive = true
+                                        }
+                                    }
                                 }
                             }
                         },
