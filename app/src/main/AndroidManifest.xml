@@ -3,9 +3,7 @@
     package="com.vsahin.praytimes">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <uses-feature android:name="android.hardware.type.watch" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -28,18 +26,9 @@
             android:value="true" />
 
         <activity
-            android:name=".ui.about.AboutActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"
-            android:label="@string/title_activity_about" />
-        <activity
-            android:name=".ui.locationSelector.LocationSelectorActivity"
-            android:exported="true"
-            android:label="@string/title_activity_location_selector" />
-        <activity
-            android:name=".ui.home.HomeActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:launchMode="singleTask">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,7 +40,8 @@
             android:name=".ui.tile.PrayTileService"
             android:description="@string/tile_description"
             android:label="@string/tile_label"
-            android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER">
+            android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER"
+            android:exported="true">
             <intent-filter>
                 <action android:name="androidx.wear.tiles.action.BIND_TILE_PROVIDER" />
             </intent-filter>
